@@ -12,6 +12,15 @@
 ```
 
 ##  Working with truffle console (execute it from within this dir)
+
+### Start the console
+Start the console (placed at this directory): `truffle console`
+
+### Get contract address:
+```bash
+    > PredictionMessage.deployed().then(c => console.log(c.address));
+```
+
 ```bash
 > truffle console
 
@@ -42,9 +51,4 @@
 ### EXISTING ACCOUNT: 0x0Ac21F1a6fE22241CCD3Af85477E5358ac5847c2
 ```bash
     > web3.eth.accounts.encrypt('0x91e639bd434790e1d4dc4dca95311375007617df501e8c9c250e6a001689f2c7', 'myPassword');
-```
-
-## Contract address:
-```bash
-    > MyPrediction.deployed().then(c => console.log(c.address));
 ```

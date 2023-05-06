@@ -15,11 +15,16 @@ class ContractService {
     constructor() {
         const web3 = new Web3(new Web3.providers.HttpProvider(appConfig.ethereum.httpProvider));
 
-        const contractAddress = appConfig.ethereum.contractAddress; // replace by the one in json networks.{any}.address
+        const jsonContract = readFileJson(appConfig.ethereum.contractJsonPath);
 
-        this.contractAbiJson = readFileJson(appConfig.ethereum.contractJsonPath).abi;
+        const networks = jsonContract.networks;
+        const networkKey = Object.keys(networks)[0];
+        
+        this._contractAddress = networks[networkKey].address; // replace by the one in json networks.{any}.address
+
+        this.contractAbiJson = jsonContract.abi;
          
-        this.contract = new web3.eth.Contract(this.contractAbiJson, contractAddress);
+        this.contract = new web3.eth.Contract(this.contractAbiJson, this.contractAddress);
 
         web3.eth.getAccounts().then(accounts => {
             this.defaultAccount = accounts[0];
@@ -78,6 +83,7 @@ class ContractService {
 
     sendSignedTransaction(resolve, reject, opts) {
         if (appConfig.ethereum.useOwnerAccount) {
+            console.log('signing with owner account');
             opts.loggedAccount = this.getOwnerAccount();
         }
         opts.from = opts.loggedAccount.address;
@@ -114,10 +120,21 @@ class ContractService {
 
     createMessage(text, loggedAccount) {
         return new Promise((resolve, reject) => {
-            this.sendSignedTransaction(resolve, reject, {
-                loggedAccount: loggedAccount,
-                data: this.contract.methods.createMessage(text).encodeABI()
-            });
+            try {
+                const txPromise = this.contract.methods.createMessage(text).send({
+                    from: loggedAccount.address,
+                    to: this.contract._address,
+                    gasPrice: this.web3.utils.toHex(20* 1e9),
+                    gasLimit: this.web3.utils.toHex(210000),
+                });
+                txPromise.then(response => {
+                    console.log(`Message saved, transction: ${response.transactionHash}`);
+                    resolve(response.transactionHash);
+                }, reject)
+            } catch(ex) {
+                console.error(ex);
+                reject(ex.message);
+            }
         });
     }
 
@@ -151,9 +168,13 @@ class ContractService {
     }
 
     getOwnerAccount() {
-        var keystoreContent = readFileJson(appConfig.appPathConfig + '/keystore.json');
-        var account = this.web3.eth.accounts.decrypt(keystoreContent, appConfig.ethereum.keystorePasword);
+        const keystoreContent = readFileJson(appConfig.appPathConfig + '/keystore.json');
+        const account = this.web3.eth.accounts.decrypt(keystoreContent, appConfig.ethereum.keystorePasword);
         return account;
+    }
+
+    get contractAddress() {
+        return this._contractAddress;
     }
 }
 

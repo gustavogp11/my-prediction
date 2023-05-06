@@ -8,13 +8,8 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
+            "cwd": "${workspaceFolder}/web",
             "program": "${workspaceFolder}\\web\\bin\\www"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program v2",
-            "program": "${workspaceFolder}\\web_v2\\bin\\www"
         }
     ]
 }

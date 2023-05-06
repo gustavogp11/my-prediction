@@ -1,11 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const contractService = require('common-web').services.contractService;
-const googleUtils = require('common-web').googleUtils;
+const { googleUtils, appConfig } = require('common-web');
+const { contractService } = require('common-web').services;
 
-router.get('/', function(req, res, next) {
-    const urlGoogle = googleUtils.urlGoogle();
-    res.render('login', { logged: req.session.auth, urlGoogle: urlGoogle });
+router.get('/', function (req, res, next) {
+    if (appConfig.debug.bypassLogin) {
+        req.session.auth = contractService().getOwnerAccount();
+        res.render('index');
+    } else {
+        const urlGoogle = googleUtils.urlGoogle();
+        res.render('login', { logged: req.session.auth, urlGoogle: urlGoogle });
+    }
 });
 
 router.post('/', function (req, res, next) {

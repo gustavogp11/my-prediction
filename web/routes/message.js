@@ -33,7 +33,7 @@ router.get('/', function(req, res, next) {
 }); 
 
 router.post('/', function (req, res, next) {
-    var message = req.body.message;
+    const message = req.body.message;
     contractService().createMessage(message, req.session.auth).then(txResponse => {
         appStats.get().increment('messages');
         res.render('success-tx', { tx: txResponse });

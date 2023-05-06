@@ -39,5 +39,8 @@ module.exports = {
             clientSecret: process.env.OAUTH2_GOOGLE_CLIENT_SECRET
         }
     },
-    appPathConfig: process.env.APP_PATH_CONFIG
+    appPathConfig: process.env.APP_PATH_CONFIG,
+    debug: {
+        bypassLogin: 'true' == process.env.DEBUG_BYPASS_LOGIN
+    }
 }

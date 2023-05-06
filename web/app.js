@@ -6,6 +6,7 @@ const logger = require('morgan');
 const session = require('express-session')
 const appConfig = require('common-web').appConfig;
 const appStats = require('./appStats');
+const { contractService } = require('common-web/services');
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', require('./routes/index'));
+app.use('/auth/google', require('./routes/google-auth'));
 app.use('/users', require('./routes/users'));
 app.use('/message', require('./routes/message'));
 app.use('/login', require('./routes/login'));
@@ -78,6 +80,9 @@ app.locals.utils = {
     },
     toJSON: function(obj) {
         return JSON.stringify(obj); 
+    },
+    get contractAddress() {
+        return contractService().contractAddress;
     }
 }
 
