@@ -11,7 +11,7 @@
 	truffle compile && truffle migrate --reset
 ```
 
-##  Working with truffle console
+##  Working with truffle console (execute it from within this dir)
 ```bash
 > truffle console
 

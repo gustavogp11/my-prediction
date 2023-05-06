@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-const appConfig = require('../appConfig');
+const appConfig = require('../app-config');
 const fs = require('fs');
 
 function sendSmtp(mail) {

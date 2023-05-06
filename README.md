@@ -29,5 +29,5 @@ Go to _web_ directory and run `npm start`
 _To change the port: `PORT=7777 npm start`_
 
 ### How to use it
-Access to the application `http://localhost:3000` 
+Access to the application `http://localhost:5555` 
 

@@ -1,5 +1,5 @@
 const { google } = require('googleapis');
-const appConfig = require('../appConfig');
+const appConfig = require('../app-config');
 
 /*******************/
 /** CONFIGURATION **/

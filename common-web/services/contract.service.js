@@ -1,7 +1,7 @@
 const Web3 = require('web3');
 const fs = require('fs');
 const EthereumTx = require('ethereumjs-tx').Transaction;
-const appConfig = require('../appConfig');
+const appConfig = require('../app-config');
 
 var contractInstance = null;
 
