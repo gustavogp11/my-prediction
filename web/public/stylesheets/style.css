@@ -1,0 +1,11 @@
+.bg-login-image {
+    background: url('../img/1515851084-star-trek-the-next-generation.jpg');
+    background-size: cover;
+    background-position-x: center;
+}
+
+.bg-register-image {
+    background: url("../img/darth-vader-1553306134587.jpg");
+    background-size: cover;
+    background-position-x: center;
+}

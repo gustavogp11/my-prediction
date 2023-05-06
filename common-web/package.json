@@ -11,6 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "googleapis": "^45.0.0",
-    "dotenv": "^6.1.0"
+    "dotenv": "^6.1.0",
+    "ethereumjs-tx": "^2.1.1",
+    "nodemailer": "^6.3.1",
+    "web3": "^1.2.1"
   }
 }

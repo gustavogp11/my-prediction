@@ -7,6 +7,7 @@ contract MyPrediction {
 
   mapping ( bytes32 => NotarizedMessage) notarizedMessages; // this allows to look up notarizedMessages by their SHA256notaryHash
   bytes32[] messagesByNotaryHash; // this is like a whitepages of all images, by SHA256notaryHash
+  
   mapping ( address => bool ) authorizedUsers;
 
   struct NotarizedMessage {
