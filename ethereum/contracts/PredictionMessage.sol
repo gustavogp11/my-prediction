@@ -1,6 +1,6 @@
 pragma solidity ^0.5.11;
 
-// Simple Solidity intro/demo contract for BlockGeeks Article
+// Simple Solidity intro/demo contract
 contract PredictionMessage {
 
   address ContractAdmin;
