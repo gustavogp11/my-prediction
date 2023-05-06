@@ -120,21 +120,25 @@ class ContractService {
 
     createMessage(text, loggedAccount) {
         return new Promise((resolve, reject) => {
-            try {
-                const txPromise = this.contract.methods.createMessage(text).send({
-                    from: loggedAccount.address,
-                    to: this.contract._address,
-                    gasPrice: this.web3.utils.toHex(20* 1e9),
-                    gasLimit: this.web3.utils.toHex(210000),
-                });
-                txPromise.then(response => {
-                    console.log(`Message saved, transction: ${response.transactionHash}`);
+            const tx = {
+                from: loggedAccount.address,
+                to: this.contract._address,
+                gas: this.web3.utils.toHex(20 * 1e9),
+                gasLimit: this.web3.utils.toHex(210000),
+                value: "0x0",
+                data: this.contract.methods.createMessage(text).encodeABI()
+            };
+            const signPromise = this.web3.eth.accounts.signTransaction(tx, loggedAccount.privateKey);
+            signPromise.then(async signedTx => {
+                try {
+                    const response = await this.web3.eth.sendSignedTransaction(signedTx.raw || signedTx.rawTransaction);
+                    console.log(`Message saved, transaction: ${response.transactionHash}`);
                     resolve(response.transactionHash);
-                }, reject)
-            } catch(ex) {
-                console.error(ex);
-                reject(ex.message);
-            }
+                } catch (ex) {
+                    console.error(ex);
+                    reject(ex.message);
+                }
+            }, reject)
         });
     }
 

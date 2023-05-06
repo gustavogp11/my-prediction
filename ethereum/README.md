@@ -39,16 +39,17 @@ Start the console (placed at this directory): `truffle console`
     > PredictionMessage.deployed().then(c => c.enableUser(accounts[1], {from: accounts[1]}))
 ```
 
-### GETTING KEYSTORE (for modifying operations)
+### Getting keystore (for modifying operations)
 ```bash
     > web3.eth.accounts.encrypt('0x4c0883a69102937d6231471b5dbb6204fe5129617082792ae468d01a3f362318', 'myPassword');
 ```
-### Gets the keystore for address=0x2c7536e3605d9c16a7a3d7b1898e529396a65c23
+
+### Get Balance from account: 0x0Ac21F1a6fE22241CCD3Af85477E5358ac5847c2
 ```bash
-    > web3.eth.sendTransaction({from:'0x0Ac21F1a6fE22241CCD3Af85477E5358ac5847c2', to:'0x2c7536e3605d9c16a7a3d7b1898e529396a65c23', value:1000000000000000000})
+    > web3.eth.getBalance('0x0ac21f1a6fe22241ccd3af85477e5358ac5847c2');
 ```
 
-### EXISTING ACCOUNT: 0x0Ac21F1a6fE22241CCD3Af85477E5358ac5847c2
+### Transfer ETH from one account to another
 ```bash
-    > web3.eth.accounts.encrypt('0x91e639bd434790e1d4dc4dca95311375007617df501e8c9c250e6a001689f2c7', 'myPassword');
+    > web3.eth.sendTransaction({from:'0x0Ac21F1a6fE22241CCD3Af85477E5358ac5847c2', to:'0x444BdCd437f8E5D15a83051c4DD43546f611a46e', value:10000000})
 ```
