@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('head'); -%>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <%- include('sidebar', {active: 'messages'}); -%>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <%- include('topbar'); -%>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">
+                Mensaje: <%= message.msg_uuid %>
+          </h1>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Mensaje</h6>
+            </div>
+            <div class="card-body">
+                <div>
+                    <span class="font-weight-bold">Mensaje: </span><label><%= message.text %></label>
+                </div>
+                <div>
+                    <span class="font-weight-bold">Fecha: </span><label><%= utils.formatDate(message.created_at) %></label>
+                </div>
+                <div>
+                    <span class="font-weight-bold">Autor: </span><label><%= message.author %></label>
+                </div>
+                <div>
+                    <span class="font-weight-bold">Ver en Ethereum: </span>
+                    <a href="<%= utils.replace(locals.utils.appConfig().ethereum.viewTxUrl, '${address}', message.eth_tx) %>" target="_blank">
+                        <%= utils.replace(locals.utils.appConfig().ethereum.viewTxUrl, '${address}', message.eth_tx) %>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+          
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <%- include('footer'); -%>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <%- include('body-end'); -%>
+
+</body>
+
+</html>
+
