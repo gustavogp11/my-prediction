@@ -17,11 +17,12 @@ router.get('/callback', function (req, res, next) {
             if (!req.session.register)
                 req.session.register = {};
             var registerId = 'google:' + googleResponse.id;
-            req.session.register[registerId] = googleResponse.email;
+            req.session.register[registerId] = googleResponse.email;            
             res.render('register-google', { passwordPhrase: passwordPhrase, registerId: registerId });
         } else {
             //el usuario existe autenticamos...
             req.session.auth = contractService().loadCredentials(userExisting.keystore, userExisting.password);
+            req.session.email = googleResponse.email;
             res.render('index');
         }
     });

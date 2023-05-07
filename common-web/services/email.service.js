@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer');
 const appConfig = require('../app-config');
 const fs = require('fs');
+const path = require('path');
 
 function sendSmtp(mail) {
 
@@ -47,9 +48,12 @@ function sendFileSystem(mail) {
         time: now,
         to: mail.to
     }
+    const filePrefix = now.replace(/[\:|\-]/g, "");
     const content = mail.parser(mail.html);
-    fs.writeFileSync(`${now}.metadata.json`, JSON.stringify(metadata, null, 4));
-    fs.writeFileSync(`${now}.content.html`, content);
+    const pathMetadata = path.join(appConfig.email.filesystem.location, `${filePrefix}.metadata.json`);
+    const pathContent = path.join(appConfig.email.filesystem.location, `${filePrefix}.content.html`);
+    fs.writeFileSync(pathMetadata, JSON.stringify(metadata, null, 4));
+    fs.writeFileSync(pathContent, content);
 }
 
 module.exports = function () {

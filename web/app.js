@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-    secret: 'Heisenberg',
+    secret: appConfig.server,
     resave: false,
     saveUninitialized: true
 }));
@@ -61,7 +61,7 @@ app.locals.utils = {
         var date = new Date(timestamp);
         var yyyy = date.getFullYear();
         var MM = lpad(date.getMonth() + 1);
-        var dd = lpad(date.getDay());
+        var dd = lpad(date.getDate());
         var hh = lpad(date.getHours());
         var mm = lpad(date.getMinutes());
         var ss = lpad(date.getSeconds());

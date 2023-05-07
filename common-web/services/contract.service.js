@@ -81,72 +81,42 @@ class ContractService {
         });
     }
 
-    sendSignedTransaction(resolve, reject, opts) {
-        if (appConfig.ethereum.useOwnerAccount) {
-            console.log('signing with owner account');
-            opts.loggedAccount = this.getOwnerAccount();
-        }
-        opts.from = opts.loggedAccount.address;
-        this.web3.eth.getTransactionCount(opts.from).then(nonce => {
-            var rawTransaction = {
-                "nonce": this.web3.utils.toHex(nonce),
-                "from": opts.from, 
-                "gasPrice":this.web3.utils.toHex(20* 1e9),
-                "gasLimit":this.web3.utils.toHex(210000),
-                "to": this.contract._address,
-                "value":"0x0",
-                "data": opts.data,
+    sendSignedTransaction(resolve, reject, { loggedAccount, methodAbi }) {
+        const tx = {
+            from: loggedAccount.address,
+            to: this.contract._address,
+            gas: this.web3.utils.toHex(20 * 1e9),
+            gasLimit: this.web3.utils.toHex(210000),
+            value: "0x0",
+            data: methodAbi
+        };
+        const signPromise = this.web3.eth.accounts.signTransaction(tx, loggedAccount.privateKey);
+        signPromise.then(async signedTx => {
+            try {
+                const response = await this.web3.eth.sendSignedTransaction(signedTx.raw || signedTx.rawTransaction);
+                console.log(`Message saved, transaction: ${response.transactionHash}`);
+                resolve(response.transactionHash);
+            } catch (ex) {
+                console.error(ex);
+                reject(ex.message);
             }
-            console.log(rawTransaction);
-            //creating tranaction via ethereumjs-tx
-            var transaction = new EthereumTx(rawTransaction, this.ethTransactionOptions); 
-            //signing transaction with private key
-            transaction.sign(Buffer.from(opts.loggedAccount.privateKey.substr(2), 'hex'));
-            //sending transacton via web3js module
-            this.web3.eth.sendSignedTransaction('0x'+transaction.serialize().toString('hex'))
-                .on('transactionHash', function( response) {
-                    resolve(response);
-            }).catch(ex => { console.error(ex); reject(ex); });
-        });
-    }
-
-    createMessageWithAccount(text, sha256, loggedAccount) {
-        return new Promise((resolve, reject) => {
-            this.sendSignedTransaction(resolve, reject, {
-                data: this.contract.methods.createMessage(text, sha256, loggedAccount.email).encodeABI()
-            });
-        });
+        }, reject);
     }
 
     createMessage(text, loggedAccount) {
         return new Promise((resolve, reject) => {
-            const tx = {
-                from: loggedAccount.address,
-                to: this.contract._address,
-                gas: this.web3.utils.toHex(20 * 1e9),
-                gasLimit: this.web3.utils.toHex(210000),
-                value: "0x0",
-                data: this.contract.methods.createMessage(text).encodeABI()
-            };
-            const signPromise = this.web3.eth.accounts.signTransaction(tx, loggedAccount.privateKey);
-            signPromise.then(async signedTx => {
-                try {
-                    const response = await this.web3.eth.sendSignedTransaction(signedTx.raw || signedTx.rawTransaction);
-                    console.log(`Message saved, transaction: ${response.transactionHash}`);
-                    resolve(response.transactionHash);
-                } catch (ex) {
-                    console.error(ex);
-                    reject(ex.message);
-                }
-            }, reject)
+            this.sendSignedTransaction(resolve, reject, {
+                loggedAccount,
+                methodAbi: this.contract.methods.createMessage(text).encodeABI()
+            });
         });
     }
 
     registerUser(email, token, loggedAccount) {
         return new Promise((resolve, reject) => {
             this.sendSignedTransaction(resolve, reject, {
-                loggedAccount: loggedAccount,
-                data: this.contract.methods.registerNewUser(email, token).encodeABI()
+                loggedAccount,
+                methodAbi: this.contract.methods.registerNewUser(email, token).encodeABI()
             });
         });
     }
@@ -154,8 +124,8 @@ class ContractService {
     validateUser(token, loggedAccount) {
         return new Promise((resolve, reject) => {
             this.sendSignedTransaction(resolve, reject, {
-                loggedAccount: loggedAccount,
-                data: this.contract.methods.validateUser(token).encodeABI()
+                loggedAccount,
+                methodAbi: this.contract.methods.validateUser(token).encodeABI()
             });
         });
     }
@@ -169,6 +139,11 @@ class ContractService {
                 password: password
             });
         });
+    }
+
+    getTransaction(address) {
+        address = !address.startsWith('0x') ? `0x${address}` : address;
+        return this.web3.eth.getTransaction(address);
     }
 
     getOwnerAccount() {

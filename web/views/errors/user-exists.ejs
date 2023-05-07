@@ -1,0 +1,10 @@
+<div class="text-center">
+    <div class="error mx-auto" data-text="Error">Error</div>
+    <p class="lead text-gray-800 mb-5">User already exists</p>
+    <p class="text-gray-500 mb-0">Click the following link to remove the registerd keystore</p>
+    <form method="POST" action="/users/delete">
+        <a href="#" onclick=" if (confirm('Confirm forget user (remove registered keystore)?')) this.parentNode.submit(); return false;">
+            Forget user (remove keystore)
+        </a>
+    </form>
+</div>

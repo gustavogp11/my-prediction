@@ -8,7 +8,6 @@ module.exports = {
         contractAddress: process.env.ETHEREUM_CONTRACT_ADDRESS,
         viewTxUrl: process.env.ETHEREUM_VIEW_TX_URL.replace('${PORT}', process.env.PORT),
         keystorePasword: process.env.ETHEREUM_KEYSTORE_PASSWORD,
-        useOwnerAccount: 'true' == process.env.ETHEREUM_USE_OWNER_ACCOUNT,
         contractJsonPath: process.env.ETHEREUM_CONTRACT_JSON_PATH
     },
     email: {
@@ -27,6 +26,9 @@ module.exports = {
     },
     baseUrl: process.env.APP_BASE_URL,
     server: process.env.APP_SERVER.replace('${PORT}', process.env.PORT),
+    http: {
+        sessionPassword: process.env.HTTP_SESSION_PASSWORD ?? 'session_secret'
+    },
     db: {
         host: process.env.DB_HOST,
         user: process.env.DB_USER,

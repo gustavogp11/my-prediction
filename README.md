@@ -4,10 +4,27 @@
 A simple showcase project to show a use case of dApps, using Ethereum and integrating
 a contract with a webapp.
 
+### Description
+Users post an irreversible message in the blockchain using a Smart Contract,
+it will be easy for them to confirm the message are theirs provide that they
+send another message from the same account.
+
+### Additional features for demo purpose
+The application provides a login by keystore and google oauth2,
+for the google auth, the application creates automatically a keystore/password that is stored
+in-memory in the application and provides the user with that keystore.
+After signing in, the next step before creating messages is to register the user with an
+email, internally the contract will store an email+token, that could be validated afterwards.
+
+### Using Metamask
+_Pending: to be implemented_
+
 ## Technologies used
 - Ethereum with Solidity
 - ganache
 - truffle
+- node 
+- ejs
 
 ## Configuration
 All the configuration is stored in `.env` file   

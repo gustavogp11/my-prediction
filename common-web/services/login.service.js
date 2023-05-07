@@ -1,11 +1,16 @@
 const fs = require('fs');
+const path = require('path');
 
 const FILE_USERINFO = "/apps/yopredije/users/"
 
+function pathByEmail(email) {
+    const filename = Buffer.from(email).toString('base64');
+    return path.join(FILE_USERINFO, filename);
+}
+
 module.exports = {
     findUser: (email) => {
-        const filename = Buffer.from(email).toString('base64');
-        const path = FILE_USERINFO + filename;
+        const path = pathByEmail(email);
         const exists = fs.existsSync(path);
         if (exists) {
             const content = fs.readFileSync(path);  
@@ -14,13 +19,16 @@ module.exports = {
         return null;
     },
     saveUser: (email, info) => {
-        const filename = Buffer.from(email).toString('base64');
-        const path = FILE_USERINFO + filename;
+        const path = pathByEmail(email);
         const exists = fs.existsSync(path);
         if (exists) {
             throw new Error("User already exists");
         }
         const content = JSON.stringify(info);
         fs.writeFileSync(path, content);
+    },
+    deleteUser: (email) => {
+        const path = pathByEmail(email);
+        return fs.rmSync(path);
     }
 }

@@ -21,13 +21,13 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <% if(locals.errorPage) { %>
-                        <%- include('errors/' + errorPage) %>
+                        <%- include('errors/' + errorPage, {description: locals.description}) %>
                     <% } %>
                     <% if(locals.errorMessage) { %>
                         <div class="text-center">
                             <div class="error mx-auto" data-text="Error">Error</div>
                             <p class="lead text-gray-800 mb-5"><%= errorMessage %></p>
-                            <a href="/">&larr; Volver al inicio</a>
+                            <a href="/">&larr; Go to home</a>
                         </div>
                     <% } %>
         
