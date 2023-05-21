@@ -29,19 +29,12 @@ module.exports = {
     http: {
         sessionPassword: process.env.HTTP_SESSION_PASSWORD ?? 'session_secret'
     },
-    db: {
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_DATABASE
-    },
     oauth2: {
         google: {
             clientId: process.env.OAUTH2_GOOGLE_CLIENT_ID,
             clientSecret: process.env.OAUTH2_GOOGLE_CLIENT_SECRET
         }
     },
-    appPathConfig: process.env.APP_PATH_CONFIG,
     debug: {
         bypassLogin: 'true' == process.env.DEBUG_BYPASS_LOGIN
     }
