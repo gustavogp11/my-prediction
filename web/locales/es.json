@@ -1,0 +1,22 @@
+{
+    "Last created users": "Ult. usuarios creados",
+    "Last created messages": "Ult. mensajes creados",
+    "Last validations": "Ult. validaciones",
+    "Development Config": "Development Config",
+    "Contract Address": "Dirección del contrato",
+    "Network": "Red",
+    "Contract": "Contrato",
+    "Search transaction...": "Buscar transacción...",
+    "Sign in": "Ingresar",
+
+    "menu.home": "Inicio",
+    "menu.users": "Usuarios",
+    "menu.register_user": "Registrar usuario",
+    "menu.validate_user": "Validar usuario",
+    "menu.messages": "Mensajes",
+    "menu.create_message": "Crear mensaje",
+    "Users": "Usuarios",
+    "List registered users": "Lista de los usuarios registrados",
+    "Registered users": "Usuarios registrados",
+    "Address": "Dirección"
+}

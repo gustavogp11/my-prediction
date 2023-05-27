@@ -38,13 +38,17 @@ _instead of configuring a SMTP provider_
 
 ## Install & Run
 
-### Before running the UI
+### Before running the application
 Compile and deploy the contract [ethereum/README.md](ethereum/README.md)
 
-### Run UI
+### Run application
 Go to _web_ directory and run `npm start`
 _To change the port: `PORT=7777 npm start`_
 
 ### How to use it
 Access to the application `http://localhost:5555` 
 
+# TO Continue
+1. Language
+2. review and commit
+3. add metamask integration

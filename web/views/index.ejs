@@ -35,7 +35,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Last created users</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><%= __('Last created users') %></div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><%= utils.appStats().count('users') %></div>
                     </div>
                     <div class="col-auto">
@@ -51,7 +51,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Last created messages</div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><%= __('Last created messages') %></div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><%= utils.appStats().count('messages') %></div>
                     </div>
                     <div class="col-auto">
@@ -67,7 +67,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Last validations</div>
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><%= __('Last validations') %></div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><%= utils.appStats().count('validations') %>
                                 </div>
                             </div>
@@ -88,15 +88,15 @@
                     <!-- Approach -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Development Config</h6>
+                            <h6 class="m-0 font-weight-bold text-primary"><%= __('Development Config') %></h6>
                         </div>
                         <div class="card-body">
                             <div>
-                                <strong>Contract Address: </strong>
+                                <strong><%= __('Contract Address') %>:</strong>
                                 <p><%= utils.contractAddress %></p>
                             </div>
                             <div>
-                                <strong>Network: </strong>
+                                <strong><%= __('Network') %>: </strong>
                                 <p><%= utils.appConfig().ethereum.networkName %></p>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                     <!-- Approach -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Contract ABI JSON</h6>
+                            <h6 class="m-0 font-weight-bold text-primary"><%=__('Contract')%> ABI JSON</h6>
                         </div>
                         <div class="card-body">
                             <pre id="json-contract-abi"><code></code></pre>

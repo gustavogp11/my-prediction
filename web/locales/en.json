@@ -1,0 +1,21 @@
+{
+	"Last created users": "Last created users",
+	"Last created messages": "Last created messages",
+	"Last validations": "Last validations",
+	"Development Config": "Development Config",
+	"Contract Address": "Contract Address",
+	"Network": "Network",
+	"Contract": "Contract",
+	"menu.home": "Home",
+	"menu.users": "Users",
+	"menu.register_user": "Register user",
+	"menu.validate_user": "Validate user",
+	"menu.messages": "Messages",
+	"menu.create_message": "Create message",
+	"Search transaction...": "Search transaction...",
+	"Sign in": "Sign in",
+	"Users": "Users",
+	"List registered users": "List registered users",
+	"Registered users": "Registered users",
+	"Address": "Address"
+}

@@ -7,6 +7,13 @@ const session = require('express-session')
 const appConfig = require('common-web').appConfig;
 const appStats = require('./appStats');
 const { contractService } = require('common-web/services');
+const { I18n } = require('i18n')
+
+const i18n = new I18n({
+    locales: ['es', 'en'],
+    directory: path.join(__dirname, 'locales'),
+    defaultLocale: 'en',
+});
 
 const app = express();
 
@@ -27,6 +34,12 @@ app.use(session({
 
 app.use(function (req, res, next) {
     res.locals.session = req.session;
+    next();
+});
+
+// default: using 'accept-language' header to guess language settings
+app.use(function (req, res, next) {
+    i18n.init(req, res);
     next();
 });
 

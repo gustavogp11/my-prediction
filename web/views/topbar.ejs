@@ -11,7 +11,7 @@
         method="GET" onsubmit="this.action = '/tx/' + this.querySelector('input').value" action="#">
       <div class="input-group">
         <input type="text" class="form-control bg-light border-0 small" 
-            placeholder="Search for transaction..." aria-label="Search" aria-describedby="basic-addon2">
+            placeholder="<%=__('Search transaction...')%>" aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
           <button class="btn btn-primary" type="submit">
             <i class="fas fa-search fa-sm"></i>
@@ -171,7 +171,7 @@
       <% } else { %>
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link " href="login" id="userDropdown" role="button" >
-                <span class="mr-2 text-gray-600 "><i class="fa fa-key"></i> <span class="d-lg-inline d-none"> Sign in </span></span>
+                <span class="mr-2 text-gray-600 "><i class="fa fa-key"></i> <span class="d-lg-inline d-none"><%= __('Sign in') %></span></span>
             </a>
         </li>
       <% } %>

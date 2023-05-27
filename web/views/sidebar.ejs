@@ -16,7 +16,7 @@
     <li class="nav-item <%= active == 'index' ? 'active' : '' %>">
         <a class="nav-link" href="">
             <i class="fas fa-fw fa-home"></i>
-            <span>Home</span></a>
+            <span><%= __('menu.home') %></span></a>
     </li>
 
     <!-- Divider -->
@@ -30,31 +30,31 @@
     <li class="nav-item <%= active == 'users' ? 'active' : '' %>">
         <a class="nav-link" href="users">
             <i class="fas fa-fw fa-user"></i>
-            <span>Users</span>
+            <span><%= __('menu.users') %></span>
         </a>
     </li>
     <li class="nav-item <%= active == 'register-user' ? 'active' : '' %>">
         <a class="nav-link" href="users/create">
             <i class="fas fa-fw fa-user-plus"></i>
-            <span>Register user</span>
+            <span><%= __('menu.register_user') %></span>
         </a>
     </li>
     <li class="nav-item <%= active == 'validate-user' ? 'active' : '' %>">
         <a class="nav-link" href="users/validate">
             <i class="fas fa-fw fa-user-check"></i>
-            <span>Validate user</span>
+            <span><%= __('menu.validate_user') %></span>
         </a>
     </li>
     <li class="nav-item <%= active == 'messages' ? 'active' : '' %>">
         <a class="nav-link" href="message">
             <i class="fas fa-fw fa-comments"></i>
-            <span>Messages</span>
+            <span><%= __('menu.messages') %></span>
         </a>
     </li>
     <li class="nav-item <%= active == 'create-message' ? 'active' : '' %>">
         <a class="nav-link" href="message/create">
             <i class="fas fa-fw fa-comment-medical"></i>
-            <span>Create message</span>
+            <span><%= __('menu.create_message') %></span>
         </a>
     </li>
 
