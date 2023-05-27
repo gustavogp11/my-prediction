@@ -50,11 +50,13 @@
                   </div>
 
                   <div id="login-by-select" class="text-center">
-                        <div class="pb-3">Cómo quieres ingresar al sistema</div>
-                        <button class="btn btn-secondary btn-block mb-2" onclick="loginByKeystore()">Ingresar por keystore</button>
+                        <div class="pb-3"><%= __('Log in with') %> </div>
+                        <button class="btn btn-secondary btn-block mb-2" onclick="loginByKeystore()">
+                            <%= __('Sign in with {{name}}', {name: 'keystore'}) %>
+                        </button>
                         <a class="btn btn-danger btn-block" href="<%= urlGoogle %>">
                             <i class="fab fa-google"></i> &nbsp;&nbsp;
-                            Ingresar con Google
+                            <%= __('Sign in with {{name}}', {name: 'Google'}) %>
                         </a>
                   </div>
 
@@ -72,20 +74,19 @@
                       </div>
                     </div>
                     <button class="btn btn-primary btn-user btn-block">
-                        Login
+                        <%= __('Login') %>
                     </button>
                     <button class="btn btn-secondary btn-user btn-block" type="button" onclick="cancelLogin()">
-                        Cancelar
+                        <%= __('Cancel') %>
                     </button>
                   </form>
                   <hr>
                   <div class="text-center">
-                        Ingrese las credenciales de su Wallet Ethereum en la red de prueba <strong><%= utils.appConfig().ethereum.networkName %></strong>
+                    <%= __('Use Ethereum Wallet credentials for network') %> <strong><%= utils.appConfig().ethereum.networkName %></strong>
                   </div>
                   <div class="text-center pt-2">
-                      ¿No tienes cuenta? <a href="register">Registrarme</a>
+                    <%= __("Don't have an account?") %> <a href="register"><%= __('Sign up') %></a>
                   </div>
-                 
                 </div>
               </div>
               <% } %>

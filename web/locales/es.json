@@ -18,5 +18,11 @@
     "Users": "Usuarios",
     "List registered users": "Lista de los usuarios registrados",
     "Registered users": "Usuarios registrados",
-    "Address": "Dirección"
+    "Address": "Dirección",
+    "Log in with": "Cómo quieres ingresar al sistema",
+    "Don't have an account?": "¿No tienes cuenta?",
+    "Sign up": "Registrarse",
+    "Use Ethereum Wallet credentials for network": "Usar credenciales de Ethereum Wallet para la red",
+    "Cancel": "Cancelar",
+    "Sign in with {{name}}": "Ingresar con {{name}}"
 }

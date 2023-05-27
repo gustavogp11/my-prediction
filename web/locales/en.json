@@ -17,5 +17,15 @@
 	"Users": "Users",
 	"List registered users": "List registered users",
 	"Registered users": "Registered users",
-	"Address": "Address"
+	"Address": "Address",
+	"Sign in with name": "Sign in with name",
+	"Cancel": "Cancel",
+	"Continue log in with": "Continue log in with",
+	"Sign in with {{name}}": "Sign in with {{name}}",
+	"Login": "Login",
+	"Use Ethereum Wallet credentials for network": "Use Ethereum Wallet credentials for network",
+	"Don't have an account?": "Don't have an account?",
+	"Sign up": "Sign up",
+	"Continue logging in with": "Continue logging in with",
+	"Log in with": "Log in with"
 }
