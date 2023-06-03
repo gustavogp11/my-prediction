@@ -19,6 +19,8 @@ router.post('/', function (req, res, next) {
             const email = req.session.register[registerId];
             delete req.session.register[registerId];
             loginService.saveUser(email, response);
+            req.session.auth = contractService().loadCredentials(response.keystore, response.password);
+            req.session.email = email;
             res.render('register-completed', { result: response });
         }
     })

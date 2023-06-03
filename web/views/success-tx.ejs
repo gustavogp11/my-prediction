@@ -25,7 +25,7 @@
                         <div class="mx-auto" >
                             <i class="fa fa-success text-success"></i>
                         </div>
-                        <p class="lead text-gray-800 mb-2">Transacción: <%= tx %></p>
+                        <p class="lead text-gray-800 mb-2"><%= __('Transaction') %>: <%= tx %></p>
                         <% if(locals.utils.appConfig().ethereum.viewTxUrl) { %>
                             <div>
                                 <a href="<%= utils.replace(locals.utils.appConfig().ethereum.viewTxUrl, '${address}', tx) %>" target="_blank">
@@ -34,7 +34,7 @@
                             </div>
                         <% } %>
                         <div class="mt-2">
-                            <a  href="">&larr; Go to home</a>
+                            <a  href="">&larr; <%= __('Go to home') %></a>
                         </div>
                     </div>
         

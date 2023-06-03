@@ -45,13 +45,13 @@
                                 </div>
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Registrarse</h1>
+                                        <h1 class="h4 text-gray-900 mb-4"><%= __('Sign up') %></h1>
                                         <span>
-                                            Para registrarse en el sistema puede optar por uno de los siguientes mecanismos
+                                            <%= __('register.mechanisms') %>                                            
                                         </span>
                                     </div>
                                     <div>
-                                        <a href="<%= urlGoogle %>">login with google</a>
+                                        <a href="<%= urlGoogle %>"><%= __('Sign in with {{name}}', {name: 'Google'})</a>
                                     </div>
                                     <form class="user" method="POST" action="login">
                                         <div class="form-group">
@@ -77,7 +77,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        Ingrese las credenciales de su Wallet Ethereum en la red de prueba
+                                        <%= __('register.info') %>
                                         <strong><%= utils.appConfig().ethereum.networkName %></strong>
                                     </div>
 

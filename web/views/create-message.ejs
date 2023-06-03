@@ -22,22 +22,22 @@
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">
-                        Crear Mensaje
+                        <%= __('create_message.create') %>
                     </h1>
-                    <p class="mb-4"> <i class="fa fa-lg fa-exclamation-triangle text-warning"></i> Atención: Para crear mensajes debe registrarse como usuario</p>
-                    <p class="mb-4"><i class="fa fa-dollar-sign fa-lg" style="color:green"></i> Registrar el mensaje implica un costo en ETH.</p>
+                    <p class="mb-4"> <i class="fa fa-lg fa-exclamation-triangle text-warning"></i> <%= __('create_message.warning') %></p>
+                    <p class="mb-4"><i class="fa fa-dollar-sign fa-lg" style="color:green"></i> <%= __('create_message.warning_cost') %></p>
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Mensaje</h6>
+                            <h6 class="m-0 font-weight-bold text-primary"><%= __('create_message.message') %></h6>
                         </div>
                         <div class="card-body">
                             <form action="message" method="POST">
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
-                                        <span class="font-weight-bold">Mensaje: </span>
+                                        <span class="font-weight-bold"><%= __('create_message.message') %>: </span>
                                         <textarea name="message" class="form-control" placeholder="Escriba aquí su mensaje"></textarea>
                                         <div class="pt-2">
-                                            <button class="btn btn-primary btn-block">Guardar</button>
+                                            <button class="btn btn-primary btn-block"><%= __('Save') %></button>
                                         </div>
                                     </div>
                                 </div>

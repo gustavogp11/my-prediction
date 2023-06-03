@@ -9,6 +9,10 @@ Users post an irreversible message in the blockchain using a Smart Contract,
 it will be easy for them to confirm the message are theirs provide that they
 send another message from the same account.
 
+### Working with Ethereum
+Refer to this [document](ethereum/README.md)
+To properly use the application you will have to transfer founds to the account you are using
+
 ### Additional features for demo purpose
 The application provides a login by keystore and google oauth2,
 for the google auth, the application creates automatically a keystore/password that is stored

@@ -32,33 +32,33 @@
             </div>
             <div class="card-body">
                 <div>
-                    <span class="font-weight-bold">Email: </span><label><%= user.email %></label>                    
+                    <span class="font-weight-bold"><%= __('Email') %>: </span><label><%= user.email %></label>                    
                 </div>
                 <div>
-                    <span class="font-weight-bold">Fecha creación: </span><label><%= utils.formatDate(user.createdAt*1000) %></label>
+                    <span class="font-weight-bold"><%= __('Created date') %>: </span><label><%= utils.formatDate(user.createdAt*1000) %></label>
                 </div>
                 <div>
-                    <span class="font-weight-bold">Validado: </span><%- include('app-bool', {value: user.validatedAt > 0}) %> 
+                    <span class="font-weight-bold"><%= __('Validated') %>: </span><%- include('app-bool', {value: user.validatedAt > 0}) %> 
                     <% if(user.validatedAt > 0) { %>
                         <span class="text-success"><%= utils.formatDate(user.validatedAt*1000) %></span>
                     <% } %>
                 </div>
                 <div>
-                    <span class="font-weight-bold">Habilitado: </span> <%- include('app-bool', {value: user.enabled}) %> 
+                    <span class="font-weight-bold"><%= __('Enabled') %>: </span> <%- include('app-bool', {value: user.enabled}) %> 
                 </div>
             </div>
         </div>
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Mensajes</h6>
+              <h6 class="m-0 font-weight-bold text-primary"><%= __('Messages') %></h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Address</th>
+                      <th><%= __('Address') %></th>
                     </tr>
                   </thead>
                   <tbody>

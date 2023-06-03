@@ -41,9 +41,9 @@
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center pb-2">
-                                        <h1 class="h4 text-gray-900 mb-4">Registrarse con Google</h1>
+                                        <h1 class="h4 text-gray-900 mb-4"><%= __('register_google.title') %></h1>
                                         <span>
-                                            Ingrese una clave, guardaremos la misma y generaremos un archivo .keystore para que pueda ingresar a la red de Ethereum
+                                            <%= __('register_google.instructions') %>
                                         </span>
                                     </div>
                                   
@@ -55,7 +55,7 @@
                                         </div>
                                         <input type="hidden" name="registerId" value="<%= registerId %>" >
                                         <button class="btn btn-primary btn-user btn-block">
-                                            Create account
+                                            <%= __('Create account') %>
                                         </button>
                                     </form>
                                     <hr>

@@ -22,13 +22,13 @@
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">
-                            Validar usuario
+                        <%= __('validate_user.title') %>
                     </h1>
-                    <p class="mb-4"><i class="fa fa-dollar-sign fa-lg" style="color:green"></i> Validar el usuario implica un costo en ETH.</p>
+                    <p class="mb-4"><i class="fa fa-dollar-sign fa-lg" style="color:green"></i> <%= __('validate_user.warning_cost') %></p>
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Ingresar el token que recibió por email</h6>
+                            <h6 class="m-0 font-weight-bold text-primary"><%= __('validate_user.input_token') %></h6>
                         </div>
                         <div class="card-body">
                             <form action="users/validate" method="POST">
@@ -37,7 +37,7 @@
                                         <span class="font-weight-bold">Token: </span>
                                         <input name="token" class="form-control" >
                                         <div class="pt-2">
-                                            <button class="btn btn-primary btn-block">Validar</button>
+                                            <button class="btn btn-primary btn-block"><%= __('Validate') %></button>
                                         </div>
                                     </div>
                                 </div>

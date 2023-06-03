@@ -24,18 +24,18 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">
-                Mensaje: <%= message.address %>
+                <%= __('Message') %>: <%= message.address %>
           </h1>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Mensaje</h6>
+                <h6 class="m-0 font-weight-bold text-primary"><%= __('Message') %></h6>
             </div>
             <div class="card-body">
                 <div>
-                    <span class="font-weight-bold">Mensaje: </span><label><%= message.message %></label>
+                    <span class="font-weight-bold"><%= __('Message') %>: </span><label><%= message.message %></label>
                 </div>
                 <div>
-                    <span class="font-weight-bold">Fecha: </span><label><%= utils.formatDate(message.timestamp*1000) %></label>
+                    <span class="font-weight-bold"><%= __('Date') %>: </span><label><%= utils.formatDate(message.timestamp*1000) %></label>
                 </div>
             </div>
         </div>
