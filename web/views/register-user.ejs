@@ -22,23 +22,23 @@
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">
-                        Registrar usuario
+                        <%= __('register_user.title') %>
                     </h1>
-                    <p class="mb-4"><i class="fa fa-dollar-sign fa-lg" style="color:green"></i> Registrar el usuario implica un costo en ETH. Sólo puede registrar su usuario una vez.</p>
-                    <p class="mb-4"><i class="fa fa-exclamation fa-lg text-info"></i> Al registrar el usuario recibirá un email con el token de validación.</p>
+                    <p class="mb-4"><i class="fa fa-dollar-sign fa-lg" style="color:green"></i> <%= __('register_user.warning_cost') %></p>
+                    <p class="mb-4"><i class="fa fa-exclamation fa-lg text-info"></i> <%= __('register_user.instructions') %></p>
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Información personal</h6>
+                            <h6 class="m-0 font-weight-bold text-primary"><%= __('register_user.personal_info') %></h6>
                         </div>
                         <div class="card-body">
                             <form action="users" method="POST">
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
-                                        <span class="font-weight-bold">Email: </span>
+                                        <span class="font-weight-bold"><%= __('Email') %>: </span>
                                         <input name="email" class="form-control" >
                                         <div class="pt-2">
-                                            <button class="btn btn-primary btn-block">Registrar</button>
+                                            <button class="btn btn-primary btn-block"><%= __('Sign up') %></button>
                                         </div>
                                     </div>
                                 </div>
