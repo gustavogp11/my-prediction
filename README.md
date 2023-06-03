@@ -51,8 +51,3 @@ _To change the port: `PORT=7777 npm start`_
 
 ### How to use it
 Access to the application `http://localhost:5555` 
-
-# TO Continue
-1. Language
-2. review and commit
-3. add metamask integration
