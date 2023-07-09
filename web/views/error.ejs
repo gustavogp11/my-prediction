@@ -20,7 +20,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <% if(locals.errorPage) { %>
+                    <% if (locals.errorPage) { %>
                         <%- include('errors/' + errorPage, {description: locals.description}) %>
                     <% } %>
                     <% if(locals.errorMessage) { %>

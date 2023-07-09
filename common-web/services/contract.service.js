@@ -57,6 +57,7 @@ class ContractService {
                     resolve(usersResult);
                 });
             } catch(ex) {
+                console.error(ex);
                 reject(ex.message);
             }
         });

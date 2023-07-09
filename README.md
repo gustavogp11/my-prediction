@@ -10,7 +10,7 @@ it will be easy for them to confirm the message are theirs provide that they
 send another message from the same account.
 
 ### Working with Ethereum
-Refer to this [document](ethereum/README.md)
+Refer to this [document](ethereum/README.md)     
 To properly use the application you will have to transfer founds to the account you are using
 
 ### Additional features for demo purpose
